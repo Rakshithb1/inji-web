@@ -2,7 +2,7 @@ name: BrowserStack Tests
 on: [push, pull_request]
 jobs:
   buid:
-    #name: 'BrowserStack Test on Ubuntu'
+    name: 'inji-web-test'
     runs-on: ubuntu-latest
     env:
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}

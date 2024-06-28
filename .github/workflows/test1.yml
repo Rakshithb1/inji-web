@@ -1,27 +1,20 @@
-name: BrowserStack Tests11
-
-on:
-  push:
-    branches:
-      - 888
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    env:
-      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+  name: BrowserStack Tests
   
-
-    - name: Run tests
-      run: |
-         cd inji-web-test
-         mvn clean test -DtestngXmlFile="TestNg.xml"
+  on:
+    workflow_dispatch:
+  
+  jobs:
+    inji-web-test:
+      runs-on: ubuntu-latest
+      env:
+        BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+        BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+  
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+    
+      - name: Run tests
+        run: |
+           cd inji-web-test
+           mvn clean test -DtestngXmlFile="TestNg.xml"

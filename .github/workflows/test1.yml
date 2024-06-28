@@ -1,7 +1,11 @@
   name: BrowserStack Tests
   
   on:
-    workflow_dispatch:
+  workflow_dispatch:
+    inputs:
+      description:
+        description: 'Trigger the BrowserStack Tests manually'
+        required: false
   
   jobs:
     inji-web-test:

@@ -3,7 +3,7 @@ name: BrowserStack Tests11
 on:
   push:
     branches:
-      - DSD-5590
+      - 
   pull_request:
     branches:
       - main

@@ -24,6 +24,11 @@ jobs:
       - name: 'Checkout the repository'
         uses: actions/checkout@v2
 
+      - name: Replace BrowserStack credentials in browserstack.yml
+        run: |
+          sed -i 's/USERNAME_PLACEHOLDER/${BROWSERSTACK_USERNAME}/' browserstack.yml
+          sed -i 's/ACCESSKEY_PLACEHOLDER/${BROWSERSTACK_ACCESS_KEY}/' browserstack.yml   
+
       - name: 'Run tests'
         run: |
           cd inji-web-test

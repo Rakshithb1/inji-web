@@ -28,7 +28,7 @@ jobs:
         run: |
           cd inji-web-test
           sed -i "s/userName:.*/username: $BROWSERSTACK_USERNAME/g" browserstack.yml
-          sed -i "s/accessKey:.*/username: $BROWSERSTACK_USERNAME/g" browserstack.yml
+          sed -i "s/accessKey:.*/accessKey: $BROWSERSTACK_USERNAME/g" browserstack.yml
           cat browserstack.yml
 
       - name: 'Run tests'

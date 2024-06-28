@@ -1,4 +1,4 @@
-name: BrowserStack Tests
+name: BrowserStack Tests11
 
 on:
   push:

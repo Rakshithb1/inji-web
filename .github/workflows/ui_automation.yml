@@ -24,17 +24,20 @@ jobs:
       - name: 'Checkout the repository'
         uses: actions/checkout@v2
 
-      - name: Replace BrowserStack credentials in browserstack.yml
-        run: |
-          cd inji-web-test
-          sed -i "s/userName:.*/userName: $BROWSERSTACK_USERNAME/g" browserstack.yml
-          sed -i "s/accessKey:.*/accessKey: $BROWSERSTACK_ACCESS_KEY/g" browserstack.yml
-          cat browserstack.yml
+      ##- name: Replace BrowserStack credentials in browserstack.yml
+      ##  run: |
+      ##    cd inji-web-test
+      ##    sed -i "s/userName:.*/userName: $BROWSERSTACK_USERNAME/g" browserstack.yml
+      ####    sed -i "s/accessKey:.*/accessKey: $BROWSERSTACK_ACCESS_KEY/g" browserstack.yml
+       ##   cat browserstack.yml 
 
       - name: 'Run tests'
         run: |
           cd inji-web-test
           mvn clean test  -DtestngXmlFile="TestNg.xml"
+        env:
+          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}   
 
       - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
         uses: browserstack/github-actions/setup-local@master

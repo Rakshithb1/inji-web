@@ -28,11 +28,7 @@ jobs:
     - name: Install Maven
       run: sudo apt-get install -y maven
 
-    - name: Set up BrowserStack Local
-      uses: browserstack/github-actions@v1
-      with:
-        username: ${{ secrets.BROWSERSTACK_USERNAME }}
-        access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+  
 
     - name: Run tests
       run: mvn clean test -DtestngXmlFile="TestNg.xml"

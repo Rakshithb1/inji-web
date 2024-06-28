@@ -1,4 +1,4 @@
-  name: BrowserStack Tests7777
+  name: BrowserStack Tests
 
   on:
     workflow_dispatch:
@@ -8,9 +8,7 @@
           required: false
           default: 'Triggered for Updates'
           type: string
-  
-  
-  
+    
   jobs:
     inji-web-test:
       runs-on: ubuntu-latest

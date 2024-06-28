@@ -26,6 +26,7 @@ jobs:
 
       - name: Replace BrowserStack credentials in browserstack.yml
         run: |
+          cd inji-web-test
           sed -i 's/USERNAME_PLACEHOLDER/${BROWSERSTACK_USERNAME}/' browserstack.yml
           sed -i 's/ACCESSKEY_PLACEHOLDER/${BROWSERSTACK_ACCESS_KEY}/' browserstack.yml   
 

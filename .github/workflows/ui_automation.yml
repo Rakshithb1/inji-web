@@ -1,15 +1,14 @@
-name: 'BrowserStack Test'
+name: BrowserStack Tests
 on: [push, pull_request]
 jobs:
-  ubuntu-job:
-    name: 'BrowserStack Test on Ubuntu'
+  buid:
+    #name: 'BrowserStack Test on Ubuntu'
     runs-on: ubuntu-latest
     env:
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
       BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       
     steps:
-
       - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
         uses: browserstack/github-actions/setup-env@master
         with:
@@ -22,16 +21,13 @@ jobs:
           local-testing: start
           local-identifier: random
 
-# The next 3 steps are for building the web application to be tested and starting the web server on the runner environment
-
       - name: 'Checkout the repository'
         uses: actions/checkout@v2
 
-      - name: 'Building web application to be tested'
+      - name: 'Run tests'
         run: |
           cd inji-web-test
           mvn clean test  -DtestngXmlFile="TestNg.xml"
-
 
       - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
         uses: browserstack/github-actions/setup-local@master

@@ -3,9 +3,11 @@
   on:
     workflow_dispatch:
       inputs:
-        description:
-          description: 'Trigger the BrowserStack Tests manually'
+        message:
+          description: 'Message for manually triggering'
           required: false
+          default: 'Triggered for Updates'
+          type: string
   
   
   

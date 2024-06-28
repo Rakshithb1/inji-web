@@ -24,3 +24,4 @@
         run: |
            cd inji-web-test
            mvn clean test -DtestngXmlFile="TestNg.xml"
+           ls

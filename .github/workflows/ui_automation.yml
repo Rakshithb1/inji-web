@@ -1,4 +1,4 @@
-name: BrowserStack Tests
+name: BrowserStack Tests888
 on: [push, pull_request]
 jobs:
   buid:

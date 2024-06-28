@@ -32,4 +32,6 @@ jobs:
   
 
     - name: Run tests
-      run: mvn clean test -DtestngXmlFile="TestNg.xml"
+      run: |
+         cd inji-web-test
+         mvn clean test -DtestngXmlFile="TestNg.xml"

@@ -25,6 +25,8 @@
            cd inji-web-test
            mvn clean test -DtestngXmlFile="TestNg.xml"
            ls
+           cd test-output
+           ls
            
       - name: Save test reports
         uses: actions/upload-artifact@v3

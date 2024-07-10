@@ -1,4 +1,4 @@
-# Inji-Web
+# Inji-Web  
 Injiweb is a web interface for users who does not have access to smartphone for accessing and using digital credentials. A user should be able to do primariliy 4 key actions - fetch, download, store, share.
 
 ---

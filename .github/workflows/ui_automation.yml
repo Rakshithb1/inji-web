@@ -1,5 +1,5 @@
 name: BrowserStack Tests888
-on: [push, pull_request]
+#on: [push, pull_request]
 jobs:
   buid:
     name: 'inji-web-test'

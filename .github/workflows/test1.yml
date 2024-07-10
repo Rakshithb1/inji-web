@@ -1,13 +1,24 @@
-  name: BrowserStack Tests
+  name: BrowserStack Web Tests
 
   on:
-    workflow_dispatch:
-      inputs:
-        message:
-          description: 'Message for manually triggering'
-          required: false
-          default: 'Triggered for Updates'
-          type: string
+   release:
+     types: [published]
+   pull_request:
+     types: [opened, reopened, synchronize]
+   workflow_dispatch:
+     inputs:
+       message:
+         description: 'Message for manually triggering'
+         required: false
+         default: 'Triggered for Updates'
+         type: string
+   push:
+     branches:
+       - '!release-branch'
+       - release*
+       - master
+       - 1.*
+       - develop
     
   jobs:
     inji-web-test:
@@ -24,13 +35,10 @@
         run: |
            cd inji-web-test
            mvn clean test -DtestngXmlFile="TestNg.xml"
-           ls
-           cd test-output
-           ls
-           
+
       - name: Save test reports
         uses: actions/upload-artifact@v3
         if: success() || failure()
         with:
           name: test-reports
-          path: inji-web-test/test-output      
+          path: inji-web-test/test-output          

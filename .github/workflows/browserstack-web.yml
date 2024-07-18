@@ -18,7 +18,7 @@ on:
 
 
 jobs:
-  build-maven-authentication:
+  build-web-test:
     uses: Rakshithb1/kattu/.github/workflows/browserstack-web.yml@master
     with:
       SERVICE_LOCATION: inji-web-test
